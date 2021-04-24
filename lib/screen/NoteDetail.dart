@@ -82,16 +82,17 @@ class _NoteDetailState extends State<NoteDetail> {
                               size: 30,
                             ),
                           )
-                        : IconButton(
-                            onPressed: () {
-                              manageNote();
-                            },
-                            icon: Icon(
-                              Icons.check_circle,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                          ),
+                        : Container(),
+                    IconButton(
+                      onPressed: () {
+                        manageNote();
+                      },
+                      icon: Icon(
+                        Icons.check_circle,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                     device.isMobile
                         ? IconButton(
                             onPressed: () {
