@@ -399,7 +399,7 @@ class _LoginPageState extends State<LoginPage>
                   padding: EdgeInsets.all(12),
                   // color: Theme.of(context).primaryColor,
                   child: loginBloc.isLoading
-                      ? Utils.loadingView(40)
+                      ? Utils.loadingView(20)
                       : Text('LOGIN',
                       style: TextStyle(
                           color: Colors.white,
@@ -504,7 +504,7 @@ class _LoginPageState extends State<LoginPage>
                 ),
                 padding: EdgeInsets.all(12),
                 child: loginBloc.isLoading
-                    ? Utils.loadingView(40)
+                    ? Utils.loadingView(20)
                     : Text('SIGNUP',
                     style: TextStyle(
                         color: Colors.white,
