@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:keepapp/blocs/HomeBloc.dart';
 import 'package:keepapp/callbacks/ClickCallback.dart';
 import 'package:keepapp/enums/NoteActions.dart';
- import 'package:keepapp/utils/Device.dart';
+import 'package:keepapp/utils/Device.dart';
 import 'package:provider/provider.dart';
 
 /// Note Card details UI
@@ -22,7 +22,7 @@ class NoteDetail extends StatefulWidget {
 class _NoteDetailState extends State<NoteDetail> {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController titleController = TextEditingController();
-   HomeBloc homeBloc;
+  HomeBloc homeBloc;
   Device device;
 
   @override
@@ -46,13 +46,13 @@ class _NoteDetailState extends State<NoteDetail> {
 
     return WillPopScope(
       onWillPop: () async {
-        manageNote();
+        widget.onCancel(null, null, false);
         return false;
       },
       child: Container(
         height: device.deviceHeight,
-        width: device.deviceWidth ,
-      color: Color(homeBloc.notesBloc.note.colorValue),
+        width: device.deviceWidth,
+        color: Color(homeBloc.notesBloc.note.colorValue),
         child: Stack(
           children: [
             Column(
@@ -62,6 +62,14 @@ class _NoteDetailState extends State<NoteDetail> {
                   backgroundColor: Color(homeBloc.notesBloc.note.colorValue),
                   elevation: 0,
                   actions: [
+                    IconButton(
+                      onPressed: () => colorPicker(),
+                      icon: Icon(
+                        Icons.color_lens,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                     homeBloc.notesBloc.note.itemId != null
                         ? IconButton(
                             onPressed: () {
@@ -74,15 +82,16 @@ class _NoteDetailState extends State<NoteDetail> {
                               size: 30,
                             ),
                           )
-                        : Container(),
-                    IconButton(
-                      onPressed: () => colorPicker(),
-                      icon: Icon(
-                        Icons.color_lens,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                    ),
+                        : IconButton(
+                            onPressed: () {
+                              manageNote();
+                            },
+                            icon: Icon(
+                              Icons.check_circle,
+                              color: Colors.white,
+                              size: 30,
+                            ),
+                          ),
                     device.isMobile
                         ? IconButton(
                             onPressed: () {
@@ -152,7 +161,6 @@ class _NoteDetailState extends State<NoteDetail> {
         ),
       ),
     );
-
   }
 
   /// Change selected color from color picker box

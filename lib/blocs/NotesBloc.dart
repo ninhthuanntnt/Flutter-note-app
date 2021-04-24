@@ -9,7 +9,7 @@ class NotesBloc {
 
   NotesBloc.empty() {
     note = NoteModel();
-    note.colorValue = Colors.red.value;
+    note.colorValue = Colors.green.value;
   }
 
   // NoteModel selectedNote;
