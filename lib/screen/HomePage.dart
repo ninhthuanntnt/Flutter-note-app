@@ -99,33 +99,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              isNight
-                  ? Text(
-                      "NTNT",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: animation2.value,
-                        fontWeight: FontWeight.normal,
-                        fontFamily: 'Blaster',
-                        height: 1,
-                      ),
-                    )
-                  : Image.asset(
-                      'assets/images/navoki_banner.png',
-                      height: 40,
-                      width: 100,
-                    ),
               Text(
-                " Notes",
+                "Nhom high Note",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 26,
+                  fontSize: 30,
                   color: animation2.value,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
+                  fontFamily: 'Blaster',
                   height: 1,
                 ),
-              ),
+              )
             ],
           ),
         ),
@@ -135,7 +119,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Image.asset(
-                'assets/images/navoki.png',
+                'assets/images/bkdn.jpg',
                 height: 30,
                 width: 30,
               ),
