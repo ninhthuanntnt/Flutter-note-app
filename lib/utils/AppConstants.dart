@@ -11,25 +11,14 @@ class AppConstants {
 
   static List socialLinks = [
     {
-      'name': 'youtube',
-      "link":
-          'https://www.youtube.com/channel/UCP2-MYtIbBnlEcfTvJKo5Og?sub_confirmation=1',
-      'icon': 'assets/images/youtube.png'
-    },
-    {
       'name': 'github',
-      "link": 'https://www.github.com/theshivamlko',
+      "link": 'https://github.com/ninhthuanntnt',
       'icon': 'assets/images/github.png'
     },
     {
       'name': 'linkedin',
-      "link": 'https://www.linkedin.com/in/theshivamlko',
+      "link": 'https://www.linkedin.com/in/ninhthuanntnt',
       'icon': 'assets/images/linkedin.png'
-    },
-    {
-      'name': 'twitter',
-      "link": 'https://twitter.com/theshivamlko',
-      'icon': 'assets/images/twitter.png'
     },
     {
       'name': 'website',
