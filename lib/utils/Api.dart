@@ -11,10 +11,6 @@ String parent =
     "projects/ntnt-1999/databases/(default)/documents/notes/${Utils.userId}/data/";
 
 /// To work on Notes List
-String NOTE_API =
-    "https://firestore.googleapis.com/v1/projects/ntnt-1999/databases/(default)/documents/notes/${Utils.userId}/data/";
-
-/// To work on Notes List
 String USER_DATA_API =
     "https://firestore.googleapis.com/v1/projects/ntnt-1999/databases/(default)/documents/notes/${Utils.userId}/";
 
@@ -34,10 +30,14 @@ const loginWithApiToken =
 const passwordResetApi =
     "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${AppConstants.API_KEY}";
 
+getNoteApi(){
+  return "https://firestore.googleapis.com/v1/projects/ntnt-1999/databases/(default)/documents/notes/${Utils.userId}/data/";
+}
+
 /// return List of notes of user
 Future<List<NoteModel>> getNotes() async {
   try {
-    var response = await http.get("${NOTE_API}",
+    var response = await http.get(getNoteApi(),
         headers: {"Authorization": "Bearer ${Utils.loginToken}"});
     if (response.statusCode == 200) {
       List<NoteModel> notesList = List();
@@ -73,7 +73,7 @@ Future<List<NoteModel>> getNotes() async {
 /// return add new note [noteModel]
 Future<bool> addNote(NoteModel noteModel) async {
   try {
-    var response = await http.post("${NOTE_API}",
+    var response = await http.post(getNoteApi(),
         headers: {"Authorization": "Bearer ${Utils.loginToken}"},
         body: json.encode({
           "fields": {
@@ -113,7 +113,7 @@ Future<bool> addLoginTime() async {
 
 /// update existing note [noteModel]
 Future<bool> updateData(NoteModel noteModel) async {
-  String updateApi = "$NOTE_API" + noteModel.itemId;
+  String updateApi = getNoteApi() + noteModel.itemId;
 
   try {
     var response = await http.patch(updateApi,
@@ -137,7 +137,7 @@ Future<bool> updateData(NoteModel noteModel) async {
 Future<bool> deleteNote(NoteModel noteModel) async {
   try {
     var response = await http.delete(
-      "${NOTE_API}${noteModel.itemId}",
+      getNoteApi()+"${noteModel.itemId}",
       headers: {"Authorization": "Bearer ${Utils.loginToken}"},
     );
     if (response.statusCode == 200) {
