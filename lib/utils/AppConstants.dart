@@ -22,7 +22,7 @@ class AppConstants {
     },
     {
       'name': 'website',
-      "link": 'https://navoki.com',
+      "link": 'https://youtu.be/dQw4w9WgXcQ',
       'icon': 'assets/images/website.png'
     },
   ];
